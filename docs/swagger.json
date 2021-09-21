@@ -1,0 +1,31 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample server that says \"Hello world!\".",
+        "title": "Swagger Example API by Jeff",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/v2",
+    "paths": {
+        "/hello": {
+            "get": {
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "messages"
+                ],
+                "summary": "Responds by saying \"Hello world!\"",
+                "responses": {
+                    "200": {
+                        "description": "Hello world!",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
