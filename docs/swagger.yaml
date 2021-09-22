@@ -5,7 +5,7 @@ info:
   title: Swagger Example API by Jeff
   version: "1.0"
 paths:
-  /hello:
+  /sayhello:
     get:
       produces:
       - application/json

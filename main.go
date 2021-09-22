@@ -22,10 +22,10 @@ func NewServer() *Server {
 	}
 }
 
-func (self *Server) respond(w http.ResponseWriter, req *http.Request, message string) {
+func (self *Server) respond(w http.ResponseWriter, req *http.Request, data string) {
 
 	w.Header().Add("Content-Type", "application/json")
-	fmt.Fprint(w, message)
+	fmt.Fprint(w, data)
 }
 
 // HandleGet godoc
@@ -33,11 +33,11 @@ func (self *Server) respond(w http.ResponseWriter, req *http.Request, message st
 // @Tags messages
 // @Produce json
 // @Success 200 {string} string "Hello world!"
-// @Router /hello [get]
+// @Router /sayhello [get]
 func (self *Server) HandleGet() http.HandlerFunc {
 
 	return func(w http.ResponseWriter, req *http.Request) {
-		self.respond(w, req, "Hello world!")
+		self.respond(w, req, `{"message":"Hello world!"}`)
 	}
 
 }
@@ -49,7 +49,7 @@ func (self *Server) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 
 func (self *Server) Routes() {
 
-	self.router.HandleFunc("/hello", self.HandleGet()).Methods("GET")
+	self.router.HandleFunc("/sayhello", self.HandleGet()).Methods("GET")
 	self.router.PathPrefix("/swagger").Handler(swag.WrapHandler)
 }
 
