@@ -1,20 +1,39 @@
-basePath: /v2
-info:
-  contact: {}
-  description: This is a sample server that says "Hello world!".
-  title: Swagger Example API by Jeff
-  version: "1.0"
-paths:
-  /hello:
-    get:
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: Hello world!
-          schema:
-            type: string
-      summary: Responds by saying "Hello world!"
-      tags:
-      - messages
-swagger: "2.0"
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a sample server that says \"Hello world!\".",
+    "version" : "1.0",
+    "title" : "Swagger Example API by Jeff",
+    "contact" : { }
+  },
+  "basePath" : "/v2",
+  "paths" : {
+    "/hello" : {
+      "get" : {
+        "tags" : [ "messages" ],
+        "summary" : "Responds by saying \"Hello world!\"",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Hello world!",
+            "schema" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "Model" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    }
+  }
+}
